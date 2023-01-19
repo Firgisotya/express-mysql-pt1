@@ -13,5 +13,8 @@ module.exports = function(app) {
         .get(jsonku.showId);
 
     app.route('/store')
-        .post(jsonku.store);    
+        .post(jsonku.store);
+        
+    app.route('/update/:id')
+        .put(jsonku.update);
 }
