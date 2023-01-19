@@ -56,5 +56,17 @@ module.exports = {
                 response.ok('Berhasil mengubah data!', res);
             }
         });
+    },
+
+    delete: (req, res) => {
+        let id = req.body.id_mhs;
+
+        koneksi.query('DELETE FROM mahasiswa WHERE id_mhs=?', [id], (error, rows, fields) => {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok('Berhasil menghapus data!', res);
+            }
+        });
     }
 }
