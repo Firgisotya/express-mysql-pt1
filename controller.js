@@ -27,5 +27,19 @@ module.exports = {
                 response.ok(rows, res);
             }
         });
-    }
+    },
+
+    store: (req, res) => {
+        let nim = req.body.nim;
+        let nama = req.body.nama;
+        let jurusan = req.body.jurusan;
+
+        koneksi.query('INSERT INTO mahasiswa (nim, nama, jurusan) VALUES (?, ?, ?)', [nim, nama, jurusan], (error, rows, fields) => {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok('Berhasil menambahkan data!', res);
+            }
+        });
+    },
 }

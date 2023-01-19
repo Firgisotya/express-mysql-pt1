@@ -11,4 +11,7 @@ module.exports = function(app) {
 
     app.route('/show/:id')
         .get(jsonku.showId);
+
+    app.route('/store')
+        .post(jsonku.store);    
 }
