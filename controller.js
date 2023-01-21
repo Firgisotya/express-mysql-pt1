@@ -68,5 +68,16 @@ module.exports = {
                 response.ok('Berhasil menghapus data!', res);
             }
         });
-    }
+    },
+
+    nested: (req, res) => {
+        koneksi.query('SELECT mahasiswa.nim, mahasiswa.nama, mahasiswa.jurusan, matakuliah.matakuliah, matakuliah.sks FROM krs JOIN mahasiswa JOIN matakuliah WHERE krs.id_mhs = mahasiswa.id_mhs AND krs.id_matakuliah = matakuliah.id_matakuliah ORDER BY mahasiswa.nim', (error, rows, fields) => {
+            
+            if (error) {
+                console.log(error);
+            } else {
+                response.nested(rows, res);
+            }
+        });
+    },
 }

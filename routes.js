@@ -20,4 +20,7 @@ module.exports = function(app) {
 
     app.route('/delete/:id')
         .delete(jsonku.delete);
+        
+    app.route('/tampilgroup')
+        .get(jsonku.nested);
 }
